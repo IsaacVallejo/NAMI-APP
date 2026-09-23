@@ -10,4 +10,8 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: 'local-support',
+    loadComponent: () => import('./local-support/local-support.page').then( m => m.LocalSupportPage)
+  },
 ];
