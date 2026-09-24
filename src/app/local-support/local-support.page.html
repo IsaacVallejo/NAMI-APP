@@ -1,5 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
     <ion-title>Local Support</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,7 +14,7 @@
     <h1>Find local NAMI Support</h1>
 
     <p>
-      Find local NAMI support and contact information for 
+      Find local NAMI support and contact information for
       Thurston and Mason counties.
     </p>
 
@@ -26,6 +31,18 @@
         <p>Phone number will be displayed here.</p>
         <h2>Location</h2>
         <p>Office location will be displayed here.</p>
+        <br>
+        <h2>Find Support Near You</h2>
+
+        <p>
+          Use your location to find nearby NAMI support and contact information
+        </p>
+
+        <ion-button (click)="findNearestSupport()">
+          Find Nearby Support
+        </ion-button>
+
+        <p>{{ supportMessage }}</p>
 
 
       </ion-card-content>

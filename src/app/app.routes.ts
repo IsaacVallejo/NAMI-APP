@@ -13,5 +13,9 @@ export const routes: Routes = [
   {
     path: 'local-support',
     loadComponent: () => import('./local-support/local-support.page').then( m => m.LocalSupportPage)
+  },  {
+    path: 'resources',
+    loadComponent: () => import('./resources/resources.page').then( m => m.ResourcesPage)
   },
+
 ];

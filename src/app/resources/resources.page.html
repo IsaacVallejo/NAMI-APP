@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Resources</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Crisis Support</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>
+        Access crisis support and emergency mental health resources.
+      </p>
+
+      <ion-button (click)="openResource('https://namitm.org/crisis-info-2/')">
+        View Resources
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>NAMI Resources</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>
+        Find mental health education, support, and information from NAMI.
+      </p>
+
+      <ion-button (click)="openResource('https://namitm.org/support-and-education/mental-health-education/')">
+        View Resources
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Community Resources</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>
+        Explore additional mental health and community support resources.
+      </p>
+
+      <ion-button (click)="openResource('https://namitm.org/get-involved/')">
+        View Resources
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

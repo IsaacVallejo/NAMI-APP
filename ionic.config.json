@@ -1,7 +1,8 @@
 {
   "name": "NAMI-APP",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular-standalone"
 }
