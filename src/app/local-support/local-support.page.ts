@@ -1,3 +1,5 @@
+import { collection, getDocs } from '@firebase/firestore';
+import { db } from '../firebase';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -16,7 +18,9 @@ import {
 })
 export class LocalSupportPage implements OnInit {
 
-  constructor(private changeDetector: ChangeDetectorRef) { }
+  constructor(private changeDetector: ChangeDetectorRef) {
+
+  }
 
   supportMessage = '';
   findNearestSupport() {
@@ -40,7 +44,39 @@ export class LocalSupportPage implements OnInit {
     );
   }
 
+  localSupport: any[] = [];
+
+
+
+  async loadLocalSupport() {
+    try {
+      this.localSupport = [];
+
+      const querySnapshot = await getDocs(
+        collection(db, 'localSupport')
+      );
+
+      console.log('docs found:', querySnapshot.size);
+
+      querySnapshot.forEach((doc) => {
+        this.localSupport.push(doc.data());
+      });
+
+      console.log('final array:', this.localSupport);
+      this.changeDetector.detectChanges();
+
+
+    } catch (error) {
+      console.error('Firestore error:', error);
+    }
+  }
+
+
   ngOnInit() {
+  }
+
+  ionViewWillEnter() {
+    this.loadLocalSupport();
   }
 
 }

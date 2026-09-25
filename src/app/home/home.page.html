@@ -45,6 +45,23 @@
       </ion-card-content>
     </ion-card>
   </div>
+  <section class="events-section">
+    <h2>Upcoming Events</h2>
 
+    @for (event of events; track $index) {
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ event.title }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p><strong>Date:</strong> {{ event.date }}</p>
+        <p><strong>Time:</strong> {{ event.time }}</p>
+        <p><strong>Location:</strong> {{ event.location }}</p>
+        <p>{{ event.description }}</p>
+      </ion-card-content>
+    </ion-card>
+    }
+  </section>
 
 </ion-content>
