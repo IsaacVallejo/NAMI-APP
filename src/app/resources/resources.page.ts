@@ -1,33 +1,60 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { Component } from '@angular/core';
+
 import {
-  IonContent, IonHeader, IonTitle, IonToolbar,
-  IonCard, IonCardHeader, IonCardTitle, IonButton, IonCardContent, IonButtons, IonBackButton
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonFooter,
+  IonButtons,
+  IonMenuButton,
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardContent,
+  IonButton
 } from '@ionic/angular';
 
 @Component({
   selector: 'app-resources',
   templateUrl: './resources.page.html',
   styleUrls: ['./resources.page.scss'],
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule,
-    IonCard, IonCardHeader, IonCardTitle, IonButton, IonCardContent, IonButtons, IonBackButton]
+  imports: [
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonFooter,
+    IonButtons,
+    IonMenuButton,
+    IonCard,
+    IonCardHeader,
+    IonCardTitle,
+    IonCardContent,
+    IonButton
+  ]
 })
-export class ResourcesPage implements OnInit {
+export class ResourcesPage {
 
-  constructor() { }
+  cordovaReady = false;
+
+  constructor() {
+    document.addEventListener('deviceready', () => {
+      this.cordovaReady = true;
+    });
+  }
 
   openResource(url: string) {
+    const cordova = (window as any).cordova;
 
-    if ((window as any).cordova) {
-      (window as any).cordova.InAppBrowser.open(
-        url, '_blank', 'location=yes'
+    if (this.cordovaReady && cordova?.InAppBrowser) {
+      cordova.InAppBrowser.open(
+        url,
+        '_blank',
+        'location=yes'
       );
     } else {
       window.open(url, '_blank');
     }
   }
-  ngOnInit() {
-  }
-
 }

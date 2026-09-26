@@ -1,65 +1,123 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar class="nami-toolbar">
 
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
 
-    <ion-title>Local Support</ion-title>
+    <ion-title>NAMI Thurston-Mason</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div class="ion-padding">
-    <h1>Find local NAMI Support</h1>
 
-    <p>
-      Find local NAMI support and contact information for
-      Thurston and Mason counties.
-    </p>
+<ion-content>
 
+  <section class="page-container">
 
-    @for (support of localSupport; track $index){
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>{{ support.name }}</ion-card-title>
-        <ion-card-subtitle>{{ support.type }}</ion-card-subtitle>
-      </ion-card-header>
+    <div class="page-heading">
 
-      <ion-card-content>
-        <h2>Office Hours</h2>
-        <p>Office hours will be displayed here.</p>
-        <h2>Phone</h2>
-        <p>{{ support.phone }}</p>
-        <h2>Location</h2>
-        <p>{{ support.address }}</p>
-        <h2>Website</h2>
-        <p>{{ support.website }}</p>
+      <h1>Find Local NAMI Support</h1>
 
-        <br>
-        <br>
+      <p>
+        Find local NAMI support and contact information for
+        Thurston and Mason Counties.
+      </p>
+
+    </div>
 
 
-        <h2>Find Support Near You</h2>
+    <section class="support-section">
 
-        <p>
-          Use your location to find nearby NAMI support and contact information
-        </p>
+      <div class="support-container">
 
-        <ion-button (click)="findNearestSupport()">
-          Find Nearby Support
-        </ion-button>
+        @for (support of localSupport; track $index) {
 
-        <p>{{ supportMessage }}</p>
+          <ion-card class="support-card">
+
+            <ion-card-header>
+
+              <ion-card-title>
+                {{ support.name }}
+              </ion-card-title>
+
+              <ion-card-subtitle>
+                {{ support.type }}
+              </ion-card-subtitle>
+
+            </ion-card-header>
 
 
-      </ion-card-content>
-    </ion-card>
-    }
-  </div>
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">local-support</ion-title>
-    </ion-toolbar>
-  </ion-header>
+            <ion-card-content>
+
+              <div class="support-info">
+
+                <div class="support-detail">
+                  <h2>Office Hours</h2>
+                  <p>Office hours will be displayed here.</p>
+                </div>
+
+                <div class="support-detail">
+                  <h2>Phone</h2>
+                  <p>{{ support.phone }}</p>
+                </div>
+
+                <div class="support-detail">
+                  <h2>Location</h2>
+                  <p>{{ support.address }}</p>
+                </div>
+
+                <div class="support-detail">
+                  <h2>Website</h2>
+                  <p>{{ support.website }}</p>
+                </div>
+
+              </div>
+
+
+              <div class="nearby-support">
+
+                <h2>Find Support Near You</h2>
+
+                <p>
+                  Use your location to find nearby NAMI support
+                  and contact information.
+                </p>
+
+                <ion-button (click)="findNearestSupport()">
+                  Find Nearby Support
+                </ion-button>
+
+                @if (supportMessage) {
+                  <p class="support-message">
+                    {{ supportMessage }}
+                  </p>
+                }
+
+              </div>
+
+            </ion-card-content>
+
+          </ion-card>
+
+        }
+
+      </div>
+
+    </section>
+
+  </section>
+
 </ion-content>
+
+
+<ion-footer>
+  <ion-toolbar class="nami-footer">
+
+    <div class="footer-content">
+      <span>NAMI Thurston-Mason</span>
+      <span>Mental Health Support & Resources</span>
+    </div>
+
+  </ion-toolbar>
+</ion-footer>

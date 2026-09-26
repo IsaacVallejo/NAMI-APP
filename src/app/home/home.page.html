@@ -1,67 +1,101 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar class="nami-toolbar">
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
     <ion-title>NAMI Thurston-Mason</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div class="ion-padding">
+
+<ion-content>
+
+  <section class="hero-section">
+
     <h1>Welcome</h1>
 
     <p>
-      Find local support, programs,
-      and resources for Thurston and Mason Counties.
+      Find local mental health support, programs, resources,
+      and community information for Thurston and Mason Counties.
     </p>
 
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Find Local Support</ion-card-title>
-      </ion-card-header>
+  </section>
 
-      <ion-card-content>
-        <p>
-          Find local NAMI contant, office, and location information.
-        </p>
 
-        <ion-button routerLink="/local-support">
-          Find Support
-        </ion-button>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Resources</ion-card-title>
-      </ion-card-header>
-
-      <ion-card-content>
-        <p>
-          Access mental health, crisis, and community resources.
-        </p>
-
-        <ion-button routerLink="/resources">
-          View Resources
-        </ion-button>
-      </ion-card-content>
-    </ion-card>
-  </div>
   <section class="events-section">
-    <h2>Upcoming Events</h2>
 
-    @for (event of events; track $index) {
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>{{ event.title }}</ion-card-title>
-      </ion-card-header>
+    <div class="events-container">
 
-      <ion-card-content>
-        <p><strong>Date:</strong> {{ event.date }}</p>
-        <p><strong>Time:</strong> {{ event.time }}</p>
-        <p><strong>Location:</strong> {{ event.location }}</p>
-        <p>{{ event.description }}</p>
-      </ion-card-content>
-    </ion-card>
-    }
+      <div class="section-heading">
+
+        <h2>Upcoming Events</h2>
+
+        <p>
+          Explore upcoming NAMI Thurston-Mason support groups
+          and community events.
+        </p>
+
+      </div>
+
+
+      @for (event of events; track $index) {
+
+        <ion-card class="event-card">
+
+          <ion-card-header>
+            <ion-card-title>
+              {{ event.title }}
+            </ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+
+            <p>
+              <strong>Date:</strong>
+              {{ event.date }}
+            </p>
+
+            <p>
+              <strong>Time:</strong>
+              {{ event.time }}
+            </p>
+
+            @if (event.location) {
+              <p>
+                <strong>Location:</strong>
+                {{ event.location }}
+              </p>
+            }
+
+            @if (event.description) {
+              <p class="event-description">
+                {{ event.description }}
+              </p>
+            }
+
+          </ion-card-content>
+
+        </ion-card>
+
+      }
+
+    </div>
+
   </section>
 
 </ion-content>
+
+
+<ion-footer>
+  <ion-toolbar class="nami-footer">
+
+    <div class="footer-content">
+      <span>NAMI Thurston-Mason</span>
+      <span>Mental Health Support & Resources</span>
+    </div>
+
+  </ion-toolbar>
+</ion-footer>

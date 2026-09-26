@@ -19,11 +19,6 @@
     "@angular/forms": "22.1.7",
     "@angular/platform-browser": "22.1.7",
     "@angular/router": "22.1.7",
-    "@capacitor/app": "8.1.1",
-    "@capacitor/core": "8.5.2",
-    "@capacitor/haptics": "8.0.2",
-    "@capacitor/keyboard": "8.0.5",
-    "@capacitor/status-bar": "8.0.3",
     "@ionic/angular": "^9.0.0",
     "cordova-plugin-geolocation": "^5.0.0",
     "cordova-plugin-inappbrowser": "^7.0.0",
@@ -37,10 +32,10 @@
     "@angular/cli": "22.1.8",
     "@angular/compiler-cli": "22.1.7",
     "@angular/language-service": "22.1.7",
-    "@capacitor/cli": "8.5.2",
     "@ionic/angular-toolkit": "^13.0.0",
     "angular-eslint": "22.0.0",
     "cordova-android": "^15.1.0",
+    "cordova-ios": "^8.1.1",
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-ionic-webview": "^5.0.0",
@@ -66,7 +61,8 @@
       }
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   }
 }

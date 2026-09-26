@@ -1,3 +1,64 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+  <ion-menu contentId="main-content">
+
+    <ion-header>
+      <ion-toolbar class="menu-toolbar">
+        <ion-title>NAMI Thurston-Mason</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+
+        <ion-menu-toggle auto-hide="true">
+        <ion-item
+          button
+          routerLink="/home"
+          routerDirection="root">
+          <ion-label>Home</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle auto-hide="true">
+        <ion-item
+          button
+          routerLink="/local-support"
+          routerDirection="root">
+          <ion-label>Local Support</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle auto-hide="true">
+        <ion-item
+          button
+          routerLink="/resources"
+          routerDirection="root">
+          <ion-label>Resources</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+
+        <!-- <ion-menu-toggle auto-hide="true">
+          <ion-item routerLink="/programs" button>
+            <ion-label>Programs & Support</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="true">
+          <ion-item routerLink="/crisis" button>
+            <ion-label>Crisis Support</ion-label>
+          </ion-item>
+        </ion-menu-toggle> -->
+
+      </ion-list>
+    </ion-content>
+
+  </ion-menu>
+
+
+  <div class="ion-page" id="main-content">
+    <ion-router-outlet></ion-router-outlet>
+  </div>
+
 </ion-app>

@@ -1,0 +1,92 @@
+.nami-toolbar,
+.nami-footer {
+  --background: #005eb8;
+  --color: white;
+}
+
+
+.page-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 36px 20px 40px;
+}
+
+.page-heading {
+  margin-bottom: 24px;
+}
+
+.page-heading h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.page-heading p {
+  max-width: 700px;
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.resources-section {
+  display: flex;
+  justify-content: center;
+}
+
+.resources-container {
+  width: 100%;
+  max-width: 780px;
+}
+
+.resource-card {
+  margin: 0 0 16px;
+  border-radius: 12px;
+}
+
+.resource-card ion-card-title {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.resource-card ion-card-content p {
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+.resource-card ion-button {
+  margin-top: 4px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 0 16px;
+
+  font-size: 13px;
+}
+
+
+@media (max-width: 700px) {
+  .page-container {
+    padding: 28px 16px 32px;
+  }
+
+  .page-heading h1 {
+    font-size: 28px;
+  }
+
+  .resources-container {
+    max-width: 100%;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 8px 16px;
+  }
+}

@@ -1,65 +1,127 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar class="nami-toolbar">
 
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
 
-    <ion-title>Resources</ion-title>
+    <ion-title>NAMI Thurston-Mason</ion-title>
 
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Crisis Support</ion-card-title>
-    </ion-card-header>
+<ion-content>
 
-    <ion-card-content>
+  <section class="page-container">
+
+    <div class="page-heading">
+
+      <h1>Mental Health Resources</h1>
+
       <p>
-        Access crisis support and emergency mental health resources.
+        Explore crisis support, mental health education,
+        and community resources from NAMI Thurston-Mason.
       </p>
 
-      <ion-button (click)="openResource('https://namitm.org/crisis-info-2/')">
-        View Resources
-      </ion-button>
-    </ion-card-content>
-  </ion-card>
+    </div>
 
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>NAMI Resources</ion-card-title>
-    </ion-card-header>
+    <section class="resources-section">
 
-    <ion-card-content>
-      <p>
-        Find mental health education, support, and information from NAMI.
-      </p>
-
-      <ion-button (click)="openResource('https://namitm.org/support-and-education/mental-health-education/')">
-        View Resources
-      </ion-button>
-    </ion-card-content>
-  </ion-card>
+      <div class="resources-container">
 
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Community Resources</ion-card-title>
-    </ion-card-header>
+        <ion-card class="resource-card">
 
-    <ion-card-content>
-      <p>
-        Explore additional mental health and community support resources.
-      </p>
+          <ion-card-header>
+            <ion-card-title>
+              Crisis Support
+            </ion-card-title>
+          </ion-card-header>
 
-      <ion-button (click)="openResource('https://namitm.org/get-involved/')">
-        View Resources
-      </ion-button>
-    </ion-card-content>
-  </ion-card>
+          <ion-card-content>
+
+            <p>
+              Access crisis support and emergency mental health resources.
+            </p>
+
+            <ion-button
+              (click)="openResource('https://namitm.org/crisis-info-2/')">
+              View Resources
+            </ion-button>
+
+          </ion-card-content>
+
+        </ion-card>
+
+
+        <ion-card class="resource-card">
+
+          <ion-card-header>
+            <ion-card-title>
+              NAMI Resources
+            </ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+
+            <p>
+              Find mental health education, support,
+              and information from NAMI.
+            </p>
+
+            <ion-button
+              (click)="openResource('https://namitm.org/support-and-education/mental-health-education/')">
+              View Resources
+            </ion-button>
+
+          </ion-card-content>
+
+        </ion-card>
+
+
+        <ion-card class="resource-card">
+
+          <ion-card-header>
+            <ion-card-title>
+              Community Resources
+            </ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+
+            <p>
+              Explore additional mental health and
+              community support resources.
+            </p>
+
+            <ion-button
+              (click)="openResource('https://namitm.org/get-involved/')">
+              View Resources
+            </ion-button>
+
+          </ion-card-content>
+
+        </ion-card>
+
+
+      </div>
+
+    </section>
+
+  </section>
 
 </ion-content>
+
+
+<ion-footer>
+  <ion-toolbar class="nami-footer">
+
+    <div class="footer-content">
+      <span>NAMI Thurston-Mason</span>
+      <span>Mental Health Support & Resources</span>
+    </div>
+
+  </ion-toolbar>
+</ion-footer>
