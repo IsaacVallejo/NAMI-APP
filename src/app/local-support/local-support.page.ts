@@ -71,68 +71,6 @@ export class LocalSupportPage {
   ) {}
 
 
-  testNearbyFacilities() {
-
-    this.treatmentServices
-      .searchNearbyFacilities(
-        'Olympia',
-        'Washington',
-        10
-      )
-      .subscribe({
-
-        next: (response: any) => {
-
-          console.log(
-            'GTH facility response: ' +
-            JSON.stringify(response, null, 2)
-          );
-        },
-
-        error: (error: any) => {
-
-          console.error(
-            'GTH API error:',
-            error
-          );
-        }
-
-      });
-  }
-
-
-  testAvailableTools() {
-
-    this.treatmentServices
-      .getAvailableTools()
-      .subscribe({
-
-        next: (response: any) => {
-
-          const searchTool =
-            response.result.tools[0];
-
-          console.log(
-            JSON.stringify(
-              searchTool.inputSchema,
-              null,
-              2
-            )
-          );
-        },
-
-        error: (error: any) => {
-
-          console.error(
-            'GTH tools error:',
-            error
-          );
-        }
-
-      });
-  }
-
-
   async showCrisisOptions() {
 
     const alert =
@@ -166,10 +104,6 @@ export class LocalSupportPage {
 
   openWebsite(url: string) {
 
-    console.log(
-      'Opening URL: ' + url
-    );
-
     if ((window as any).cordova) {
 
       (window as any).cordova.InAppBrowser.open(
@@ -190,10 +124,6 @@ export class LocalSupportPage {
 
   findNearbyCare() {
 
-    console.log(
-      'Starting geolocation request'
-    );
-
     this.nearbyMessage =
       'Getting your location...';
 
@@ -203,25 +133,11 @@ export class LocalSupportPage {
 
       (position) => {
 
-        console.log(
-          'Location permission granted'
-        );
-
         const latitude =
           position.coords.latitude;
 
         const longitude =
           position.coords.longitude;
-
-        console.log(
-          'Latitude:',
-          latitude
-        );
-
-        console.log(
-          'Longitude:',
-          longitude
-        );
 
         this.nearbyMessage =
           'Location found. Determining your city...';
@@ -285,15 +201,6 @@ export class LocalSupportPage {
 
                   next: (response: any) => {
 
-                    console.log(
-                      'GTH facility response: ' +
-                      JSON.stringify(
-                        response,
-                        null,
-                        2
-                      )
-                    );
-
 
                     const facilityText =
                       response?.result?.content?.[0]?.text || '';
@@ -303,16 +210,6 @@ export class LocalSupportPage {
                       this.parseFacilities(
                         facilityText
                       );
-
-
-                    console.log(
-                      'Parsed facilities: ' +
-                      JSON.stringify(
-                        this.nearbyFacilities,
-                        null,
-                        2
-                      )
-                    );
 
 
                     if (

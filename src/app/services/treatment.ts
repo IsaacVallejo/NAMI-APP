@@ -38,18 +38,6 @@ export class TreatmentService {
     );
   }
 
-  getAvailableTools() {
-    const requestBody = {
-      jsonrpc: '2.0',
-      id: 2,
-      method: 'tools/list'
-    };
-
-    return this.http.post<any>(
-      this.apiUrl,
-      requestBody
-    );
-  }
 
   reverseGeocode(
     latitude: number,
