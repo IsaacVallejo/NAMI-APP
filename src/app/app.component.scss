@@ -3,6 +3,9 @@
   --color: white;
 }
 
+.nami-toolbar ion-menu-button {
+  --color: white;
+}
 ion-menu {
   --width: 280px;
 }
@@ -13,7 +16,7 @@ ion-menu ion-content {
 
 ion-menu ion-item {
   --background: transparent;
-  --color: #1f2937;
+  --color: #3d516d;
   --padding-start: 18px;
 
   font-size: 16px;

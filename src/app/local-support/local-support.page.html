@@ -45,38 +45,102 @@
 
     <section class="nearby-care-section">
 
-  <div class="section-heading">
+      <div class="section-heading">
 
-    <ion-button
-      fill="outline"
-      (click)="testNearbyFacilities()">
-      Test Treatment API
-    </ion-button>
+        <!-- <ion-button
+          fill="outline"
+          (click)="testNearbyFacilities()">
+          Test Treatment API
+        </ion-button>
 
-    <ion-button
-      ill="outline"
-      (click)="testAvailableTools()">
-      Check API Tools
-    </ion-button>
-    <h2>Nearby Care</h2>
+        <ion-button
+          ill="outline"
+          (click)="testAvailableTools()">
+          Check API Tools
+        </ion-button> -->
+        <h2>Nearby Care</h2>
 
-    <p>
-      Use your current location to find treatment facilities near you.
-    </p>
-  </div>
+        <p>
+          Use your current location to find treatment and recovery services near you.
+        </p>
+      </div>
 
-  <ion-button
-    (click)="findNearbyCare()">
-    Use My Location
-  </ion-button>
+      <ion-button
+        (click)="findNearbyCare()">
+        Use My Location
+      </ion-button>
 
-  @if (nearbyMessage) {
-    <p class="nearby-message">
-      {{ nearbyMessage }}
-    </p>
-  }
+      @if (nearbyMessage) {
+        <p class="nearby-message">
+          {{ nearbyMessage }}
+        </p>
+      }
 
-</section>
+      @if(nearbyFacilities.length >0){
+        <div class="nearby-results">
+          @for(facility of nearbyFacilities; track $index){
+            <ion-card class="nearby-facility-card">
+              <ion-card-header>
+                <ion-card-title>
+                  {{ facility.name }}
+                </ion-card-title>
+
+                <ion-card-subtitle>
+                  {{ facility.location }}
+                </ion-card-subtitle>
+              </ion-card-header>
+
+              <ion-card-content>
+                <div class="faciility-info">
+                  <div class="facility-detail">
+                    <h3>Programs</h3>
+                    <p>
+                      {{ facility.programs }}
+                    </p>
+                  </div>
+
+                  <div class="facility-detail">
+                    <h3>Insurance</h3>
+                    <p>
+                      {{ facility.insurance }}
+                    </p>
+                  </div>
+                  <div class="facility-detail">
+                    <h3>Phone</h3>
+                    <p>
+                      {{ facility.phone }}
+                    </p>
+                  </div>
+
+                  <div class="facility-actions">
+
+                    @if (facility.phone) {
+
+                      <ion-button
+                        fill="outline"
+                        [href]="'tel:' + facility.phone">
+                        Call
+                      </ion-button>
+                    }
+
+                    @if (facility.url) {
+
+                      <ion-button
+                        (click)="openWebsite(facility.url)">
+                        More Information
+                      </ion-button>
+                    }
+
+                  </div>
+
+                </div>
+              </ion-card-content>
+            </ion-card>
+          }
+        </div>
+      }
+
+    </section>
 
     <section class="support-section">
 
