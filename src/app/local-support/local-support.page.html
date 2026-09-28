@@ -17,20 +17,75 @@
 
     <div class="page-heading">
 
-      <h1>Find Local NAMI Support</h1>
+      <!-- <h1>Find Local NAMI Support</h1>
 
       <p>
         Find local NAMI support and contact information for
         Thurston and Mason Counties.
-      </p>
+      </p> -->
 
     </div>
 
+    <section class="urgent-section">
+
+      <h2>Urgent Support</h2>
+
+      <p>
+        If you or someone you know needs immediate crisis support, help is available 24/7.
+      </p>
+      
+      <ion-button
+        color="danger"
+        (click)="showCrisisOptions()">
+        Crisis Support
+      </ion-button>
+
+    </section>
+    
+
+    <section class="nearby-care-section">
+
+  <div class="section-heading">
+
+    <ion-button
+      fill="outline"
+      (click)="testNearbyFacilities()">
+      Test Treatment API
+    </ion-button>
+
+    <ion-button
+      ill="outline"
+      (click)="testAvailableTools()">
+      Check API Tools
+    </ion-button>
+    <h2>Nearby Care</h2>
+
+    <p>
+      Use your current location to find treatment facilities near you.
+    </p>
+  </div>
+
+  <ion-button
+    (click)="findNearbyCare()">
+    Use My Location
+  </ion-button>
+
+  @if (nearbyMessage) {
+    <p class="nearby-message">
+      {{ nearbyMessage }}
+    </p>
+  }
+
+</section>
 
     <section class="support-section">
 
       <div class="support-container">
-
+        <h2>Local NAMI Support</h2>
+        <p>
+          Connect directly with NAMI Thurston-Mason for local 
+          support, education, and community resources
+        </p>
         @for (support of localSupport; track $index) {
 
           <ion-card class="support-card">
@@ -72,30 +127,19 @@
                   <p>{{ support.website }}</p>
                 </div>
 
-              </div>
+                <div class="support-actions">
+                  <ion-button
+                    fill="outline"
+                    [href]="'tel:' + support.phone">
+                    Call
+                  </ion-button>
 
-
-              <div class="nearby-support">
-
-                <h2>Find Support Near You</h2>
-
-                <p>
-                  Use your location to find nearby NAMI support
-                  and contact information.
-                </p>
-
-                <ion-button (click)="findNearestSupport()">
-                  Find Nearby Support
-                </ion-button>
-
-                @if (supportMessage) {
-                  <p class="support-message">
-                    {{ supportMessage }}
-                  </p>
-                }
+                  <ion-button
+                    (click)="openWebsite(support.website)">
+                    Visit Website</ion-button>
+                </div>
 
               </div>
-
             </ion-card-content>
 
           </ion-card>
